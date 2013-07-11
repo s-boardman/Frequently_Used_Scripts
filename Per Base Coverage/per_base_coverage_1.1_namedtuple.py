@@ -20,3 +20,10 @@ with open('F:/Scripts/Per Base Coverage/test_data.csv', mode="r") as infile:
     for row in reader:
         data = Data(*row)
 Print data	
+
+
+"""
+http://www.artima.com/weblogs/viewpost.jsp?thread=236637
+http://stackoverflow.com/questions/9007174/what-is-the-pythonic-way-to-read-a-csv-file-header
+http://stackoverflow.com/questions/5830197/python-import-file-into-namedtuple
+"""
