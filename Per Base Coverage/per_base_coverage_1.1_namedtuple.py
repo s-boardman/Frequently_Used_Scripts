@@ -1,33 +1,16 @@
 import csv
 from collections import namedtuple
 
-"""
-with open("F:/Scripts/Per Base Coverage/test_data.csv", 'rb') as fin: #open file
-	BaseData = namedtuple('BaseData', ['locus, total_depth, average_depth_sample, other_depth'], verbose=True) #construct the named tuple class and keys
-	for line in map(BaseData._make, csv.reader(fin): #read the input file and then for each line
-		print 'Base %s has a depth of %f' % (BaseData.locus, BaseData.total_depth) #print this statement with the relevant values.
-		
-"""
-		
-	
+with open('F:/Scripts/Per Base Coverage/test_data.csv','rb') as fin, open('F:/Scripts/Per Base Coverage/test_data_output.csv','wb') as fout: #open output file as writeable
+    fin_csv = csv.reader(fin) #define csv reader function
+    fout_csv = csv.writer(fout) #define the csv writer function    
+    Base = namedtuple('Base', next(fin_csv)) #create namedtuple keys from header row
+    for r in fin_csv: #for each row in the file
+        row = Base(r[0], *map(int, r[1:])) #keep first column data values as strings, make the rest into integers
+        if row.Total_Depth < 15: #for rows with total depth <15
+            fout_csv.writerow(r) #write rows to the csv ouput file
 
-import csv
-from collections import namedtuple
 
-poor_coverage = {} #storage for rows with poor coverage
-
-with open('F:/Scripts/Per Base Coverage/test_data.csv') as f:
-    f_csv = csv.reader(f) #read using csv.reader()
-    Base = namedtuple('Base', next(f_csv)) #create namedtuple keys from header row
-    for r in f_csv: #for each row in the file
-        row = Base(r[0], *map(int, r[1:]))
-        """iterate over each Row in the file and assign comma seaprated values to each corresponding namedtuple key
-        First column kept as a string, second column onwards processed as an ineger.
-        """
-        if row.Total_Depth < 15:
-            (row) # somehow store rows in poor_coverage data structure to be used by a write function
-
-print poor_coverage
 
 """
 http://www.artima.com/weblogs/viewpost.jsp?thread=236637
