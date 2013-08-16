@@ -30,11 +30,13 @@ total_bases = 268440
 
 def file_len(fname):
     with open(fname) as f:
-        for i, l in enumerate(f):
+        for i, l in enumerate(f): #count number of lines in file
             pass
     return i + 1
 
 
 
-for fil in input_list:
-    print fil[139:] + '\t' + str(file_len(fil)) + '\t' + str((float(file_len(fil)/(float(total_bases))))*100) + '%'
+with open(r + 'Percentage Poor Coverage.txt', 'w') as fout: #open text file as output
+    for fil in input_list: #for each file in the input list
+        fout.write(fil[139:] + '\t' + '%.2f' % ((float(file_len(fil)/(float(total_bases))))*100) + '%' + ' (' + str(file_len(fil)) + '/' + str(total_bases) + ') ' + 'bases with <15x coverage.' + '\n')
+        #write the sample name from the filename, the % of bases with <15x coverage, then the calculation used to generate the proportion
