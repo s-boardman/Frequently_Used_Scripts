@@ -42,7 +42,5 @@ for fil in input_list:
 
 """
 Next steps:
-Concatenate adjacent basepairs into low coverage contigs.
-http://stackoverflow.com/questions/8773890/python-using-itertools-to-get-previous-current-and-next-item-in-list-from-tex?rq=1
-Being able to vary the coverage depth cutoff by user prompt input (i.e. pop-up asking for minimum coverage depth...)
+Group sequential bases with poor coverage into contigs
 """
