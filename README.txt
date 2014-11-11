@@ -1,3 +1,3 @@
-This library contains simple scripts I am constructing to help with various tasks at work.
+A repository to collect snippets of code that I use regularly or are neat tricks.
 
-The scripts are very basic as I am just learning, but I'm aiming to expand my knowledge to use Python regularly in my day-to-day life.
+Contains, Python, Shell, and Unix scripts.
